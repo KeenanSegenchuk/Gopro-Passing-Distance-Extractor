@@ -27,3 +27,5 @@ Distance Sensor:
 		Adafruit Feather HUZZAH with ESP8266
 	Sensors:
 		Ultrasonic Distance Sensor - 5V (HC-SR04)
+	Code:
+		C++/arduino code for the controller is doubledistance.ino. It will record objects within a certain distance and output their distances and how long/when they were in front of the sensor for via serial when the 2 and 16 pins are shorted.
