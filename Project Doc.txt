@@ -1,0 +1,29 @@
+Purpose:
+	The purpose of this project is to be able to collect data on how much distance cars give you when passing.
+	This data can be used to infer and provide evidence for what environments and behaviors are safest for cyclists, i.e.:
+		1. Is being further off the road safer, or do cars give more passing distance when they have to
+		   consciously avoid someone cycling closer to their lane?
+		2. Is x road safer after a bike lane or wider shoulder has been added?
+		3. Is a car more likely to come within 2 feet of you on a main road, or a side road?
+MATLAB:
+	Model:
+		The car positions are extracted from gopro footage using the Matlab's mono camera detector
+		from the "Visual Perception Using Mono Camera" example from Mathworks.
+		This project uses a pretrained region-based CNN from the vehicleDetectorFasterRCNN() function
+		to identify cars in images, since it is faster than the detector used in the Mathwork's example.		
+	App:
+		The gopro_viewer app was created to provide frame-by-frame analysis of the footage
+		so that I could scrutinize the accuracy of various frame sampling configurations, car
+		detection models, methods of filtering out oncoming cars and non-roadway objects that 
+		produce false positives and configurations of the camera lense properties used to 
+		calculate the relative position of the car based off of it's position in the image.
+	gopro Class:
+		The gropro class takes in a path to a gopro video, outputs a text file listing detected 
+		cars and their location when in frame, and is also optimized for memory and speed.
+Distance Sensor:
+	Purpose:
+		Record control data using ranging sensors to test accuracy of/calibrate Matlab code.
+	Processor:
+		Adafruit Feather HUZZAH with ESP8266
+	Sensors:
+		Ultrasonic Distance Sensor - 5V (HC-SR04)
